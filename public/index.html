@@ -4,14 +4,133 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>untitled</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Product Table filling</title>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but untitled doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+
+  <div id="app">
+    <p>
+      1.
+      <button class="btn btn-success" @click="addProducts()">Сформировать массив товаров</button> &nbsp;->&nbsp;
+      2.
+      <button id="btn" class="btn btn-success"> TableDownload</button>
+    </p>
+    <hr>
+      <div class="">
+        <table class="table table-bordered table-striped">
+          <thead>
+          <th>product_id</th>
+          <th>name</th>
+          <th>categories</th>
+          <th>sku</th>
+          <th>upc</th>
+          <th>ean</th>
+          <th>jan</th>
+          <th>isbn</th>
+          <th>mpn</th>
+          <th>location</th>
+          <th>quantity</th>
+          <th>model</th>
+          <th>manufacturer</th>
+          <th>image_name</th>
+          <th>requires
+            shipping</th>
+          <th>price</th>
+          <th>points</th>
+          <th>date_added</th>
+          <th>date_modified</th>
+          <th>date_available</th>
+          <th>weight</th>
+          <th>unit</th>
+          <th>length</th>
+          <th>width</th>
+          <th>height</th>
+          <th>length
+            unit</th>
+          <th>status
+            enabled</th>
+          <th>tax_class_id</th>
+          <th>viewed</th>
+          <th>language_id</th>
+          <th>seo_keyword</th>
+          <th>description</th>
+          <th>meta_description</th>
+          <th>meta_keywords</th>
+          <th>stock_status_id</th>
+          <th>store_ids</th>
+          <th>layout</th>
+          <th>related_ids</th>
+          <th>tags</th>
+          <th>sort_order</th>
+          <th>subtract</th>
+          <th>minimum</th>
+          </thead>
+          <tbody>
+          <tr v-for="product of products" :key="product.productId">
+            <td>{{product.productId}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.sku}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.model}}</td>
+            <td>{{product.manufacturer}}</td>
+            <td>{{product.image}}</td>
+            <td>{{product.shipping}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.points}}</td>
+            <td>{{product.dAdded}}</td>
+            <td>{{product.dModified}}</td>
+            <td>{{product.dAvailable}}</td>
+            <td>{{product.weight}}</td>
+            <td>{{product.unit}}</td>
+            <td>{{product.length}}</td>
+            <td>{{product.width}}</td>
+            <td>{{product.height}}</td>
+            <td>{{product.lengthUnit}}</td>
+            <td>{{product.statusEn}}</td>
+            <td>{{product.taxClass}}</td>
+            <td>0</td>
+            <td>{{product.languageId}}</td>
+            <td>{{product.seoKeyword}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.metaDescription}}</td>
+            <td>{{product.metaKeywords}}</td>
+            <td>{{product.stockStatusId}}</td>
+            <td>{{product.storeId}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{product.sortOrder}}</td>
+            <td>{{product.subtrct}}</td>
+            <td>{{product.minimum}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.table2excel.js"></script>
+
+    <script type="text/javascript">
+      $('#btn').click(function(){
+        $('.table').table2excel({
+          exclude: "",
+          name: "anyName",
+          filename: "Pricelist"
+        })
+      })
+    </script>
   </body>
 </html>
